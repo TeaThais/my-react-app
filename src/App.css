@@ -1,8 +1,5 @@
-.App {
-  /*text-align: center;*/
-}
-
 .app-wrapper {
+
   display: grid;
   grid-template-areas:
   "h h"
