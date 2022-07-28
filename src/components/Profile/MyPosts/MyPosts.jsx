@@ -3,7 +3,7 @@ import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 const MyPosts = () => {
-    return <div> my posts
+    return <div>
             <Post />
         </div>
 }
