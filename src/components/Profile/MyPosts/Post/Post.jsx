@@ -18,7 +18,7 @@ const Post = () => {
     return <div>
         <textarea name="" id="" cols="30" rows="3"/>
         <div>
-            <button>Send</button>
+            <button className={classes.button}>Add Post</button>
         </div>
         <PostItem pic={<img className='img' src={Picture[0].link} alt=""/>} name={postItems[0].name} message={postItems[0].message} likes={postItems[0].likes}/>
         <PostItem pic={<img className='img' src={Picture[1].link} alt=""/>} name={postItems[1].name} message={postItems[1].message} likes={postItems[1].likes}/>
