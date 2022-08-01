@@ -3,8 +3,6 @@ import classes from './PostItem.module.css';
 
 const PostItem = (props) => {
 
-
-
     return <div className={classes.item}>
         <div>
             {props.pic} {props.name} {props.message}
