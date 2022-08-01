@@ -19,11 +19,11 @@ const App = () => {  //App is a function that returns layout
                 <Navbar/>
                 <div className='content'>
                     <Routes>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/dialogs" element={<Dialogs/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
+                        <Route exact path="/profile" element={<Profile/>}/>
+                        <Route exact path="/dialogs" element={<Dialogs/>}/>
+                        <Route exact path="/music" element={<Music/>}/>
+                        <Route exact path="/news" element={<News/>}/>
+                        <Route exact path="/settings" element={<Settings/>}/>
                     </Routes>
                 </div>
             </div>
