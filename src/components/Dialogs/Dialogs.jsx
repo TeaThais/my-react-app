@@ -11,16 +11,16 @@ const Dialogs = (props) => {
     ]
 
     let Messages = [
-        {message: 'Hi, how are you'},
-        {message: 'What are you doing?'},
-        {message: 'Ciao, come stai?'}
+        {id:1, message: 'Hi, how are you'},
+        {id:2, message: 'What are you doing?'},
+        {id:3, message: 'Ciao, come stai?'}
     ]
 
     let dialogElements = Dialogs
         .map(d  => <Dialog id={d.id} name={d.name}/>)
 
     let messageElements = Messages
-        .map(m => <Dialog message={m.message}/>)
+        .map(m => <Dialog id={m.id} message={m.message}/>)
 
     return (<div className={classes.dialog}>
         <div>
