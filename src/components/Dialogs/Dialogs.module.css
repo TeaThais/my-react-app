@@ -3,5 +3,17 @@
     grid-template-columns: 2fr 10fr
 }
 
+.dialog a{
+    margin: 20px;
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dialog a.active {
+    color: gold;
+    margin: 20px;
+    text-decoration: none;
+}
 
 
