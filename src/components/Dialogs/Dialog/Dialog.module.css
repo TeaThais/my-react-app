@@ -8,3 +8,7 @@
     padding: 10px;
     color: #61dafb;
 }
+
+.dialogItem a.active {
+    color: gold;
+}
