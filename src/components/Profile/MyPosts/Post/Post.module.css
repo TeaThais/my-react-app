@@ -1,4 +1,8 @@
 .button {
     padding: 5px;
     margin-top: 5px;
+    background-color: #282c34;
+    color: hotpink;
+    font-size: 20px;
+    border-radius: 10px;
 }
