@@ -13,19 +13,24 @@ import {Route, BrowserRouter} from "react-router-dom";
 
 const App = (props) => {  //App is a function that returns layout
     return (
-        <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='content'>
-                        <Route path="/profile" render={() => <Profile avatarPic={props.avatarPic} backgroundPic={props.backgroundPic} postItems={props.postItems}/>}/>
-                        <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messagesData={props.messagesData}/>}/>
-                        <Route path="/music" render={() => <Music />}/>
-                        <Route path="/news" render={() => <News />}/>
-                        <Route path="/settings" render={() => <Settings />}/>
+                        <Route path="/profile"
+                               render={() => <Profile
+                                   state={props.state.profilePage}/>}/>
+                        <Route path="/dialogs"
+                               render={() => <Dialogs
+                                   state={props.state.dialogsPage}/>}/>
+                        <Route path="/music"
+                               render={() => <Music />}/>
+                        <Route path="/news"
+                               render={() => <News />}/>
+                        <Route path="/settings"
+                               render={() => <Settings />}/>
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 
