@@ -1,5 +1,9 @@
 .nav {
     grid-area: n;
+    display: grid;
+    grid-template-areas:
+    'up'
+    'down';
     background-color: #282c34;
     padding: 20px;
     /*background-color: #61dafb;*/
