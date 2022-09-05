@@ -15,7 +15,7 @@ const App = (props) => {  //App is a function that returns layout
     return (
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar/>
+                <Navbar state={props.state.navbar}/>
                 <div className='content'>
                         <Route path="/profile"
                                render={() => <Profile
