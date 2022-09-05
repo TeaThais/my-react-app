@@ -1,0 +1,4 @@
+.avatar {
+    grid-area: down;
+    display: inline-flex;
+}
