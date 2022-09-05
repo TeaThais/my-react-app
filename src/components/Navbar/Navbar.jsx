@@ -1,9 +1,12 @@
 import React from 'react';
 import classes from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import FriendBar from "./FriendBar/FriendBar";
 
-const Navbar = () => {
-    return <nav className={classes.nav}>
+const Navbar = (props) => {
+
+    return <div className={classes.nav}>
+    <nav>
         <div className= {classes.item}>
             <NavLink to='/profile' activeClassName = {classes.active}>Profile</NavLink></div>
         <div className={classes.item}>
@@ -19,6 +22,9 @@ const Navbar = () => {
             <NavLink to='/settings' activeClassName = {classes.active}>Settings</NavLink>
         </div>
     </nav>
+
+    <FriendBar navbarPic={props.state.navbarPic}/>
+    </div>
 }
 
 export default Navbar;
