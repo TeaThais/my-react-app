@@ -4,9 +4,9 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-
+    console.log(props.link)
     let dialogElements = props.state.dialogs
-        .map(d  => <DialogItem id={d.id} name={d.name}/>)
+        .map(d  => <DialogItem id={d.id} name={d.name} pic={<img className='img' src={d.link} alt=""/>}/>)
 
     let messageElements = props.state.messagesData
         .map(m => <Message id={m.id} message={m.message}/>)
