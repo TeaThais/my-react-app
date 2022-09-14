@@ -8,7 +8,7 @@ const PostItem = (props) => {
             {props.pic} {props.name} {props.message}
         </div>
         <div>
-            <button className={classes.button}>Like</button>
+            <button className='button'>Like</button>
             {props.likes}
         </div>
     </div>
