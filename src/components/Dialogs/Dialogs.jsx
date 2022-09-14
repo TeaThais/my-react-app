@@ -4,7 +4,13 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-    console.log(props.link)
+
+    let newMessage = React.createRef();
+
+    let showMessage = ()=> {
+        alert(newMessage.current.value);
+    }
+
     let dialogElements = props.state.dialogs
         .map(d  => <DialogItem id={d.id} name={d.name} pic={<img className='img' src={d.link} alt=""/>}/>)
 
@@ -17,6 +23,11 @@ const Dialogs = (props) => {
         </div>
         <div>
             {messageElements}
+            <textarea ref={newMessage} className='textarea' cols="30" rows="3"></textarea>
+            <div>
+                <button onClick={showMessage} className='button'>Send</button>
+            </div>
+
         </div>
     </div>)
 };
