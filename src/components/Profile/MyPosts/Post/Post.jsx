@@ -7,11 +7,17 @@ const Post = (props) => {
     let itemData = props.postItems
         .map(it => <PostItem pic={<img className='img' src={it.link} alt=""/>}  name={it.name} message={it.message} likes={it.likes} />)
 
+    let newPost = React.createRef();
+
+    let addPost = ()=> {
+        let post = newPost.current.value
+        alert(post);
+    }
 
     return <div>
-        <textarea name="" id="" cols="30" rows="3"/>
+        <textarea ref={newPost} cols="30" rows="3"/>
         <div>
-            <button className={classes.button}>Add Post</button>
+            <button onClick={addPost} className='button'>Add Post</button>
         </div>
         {itemData}
    </div>
