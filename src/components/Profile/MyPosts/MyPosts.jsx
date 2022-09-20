@@ -5,7 +5,7 @@ import postItem from "./Post/PostItem/PostItem";
 
 const MyPosts = (props) => {
     return <div>
-            <Post postItems={props.postItems}/>
+            <Post postItems={props.postItems} addPost={props.addPost}/>
         </div>
 }
 
