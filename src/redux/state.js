@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
         profilePage: {
                 backgroundPic: "https://images.all-free-download.com/images/graphiclarge/beach_cloud_dawn_horizon_horizontal_landscape_ocean_601821.jpg",
@@ -46,6 +48,9 @@ export let addPost = (postMessage) => {
                 link: ''
         };
         state.profilePage.postItems.push(newPost);
+        rerenderEntireTree(state);
 }
+
+
 
 export default state;
