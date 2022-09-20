@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './Post.module.css';
 import PostItem from "./PostItem/PostItem";
 
 const Post = (props) => {
@@ -11,8 +10,10 @@ const Post = (props) => {
 
     let addPost = ()=> {
         let post = newPost.current.value
-        alert(post);
+        props.addPost(post);
+        newPost.current.value = '';
     }
+
 
     return <div>
         <textarea ref={newPost} cols="30" rows="3"/>
