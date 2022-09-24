@@ -1,6 +1,7 @@
 import React from 'react';
 import PostItem from "./PostItem/PostItem";
 
+
 const Post = (props) => {
 
     let itemData = props.postItems
@@ -9,16 +10,24 @@ const Post = (props) => {
     let newPost = React.createRef();
 
     let addPost = ()=> {
-        let post = newPost.current.value
-        props.addPost(post);
-        newPost.current.value = '';
+        let text = newPost.current.value
+        props.addPost(text);
+        props.updateTextarea('');
+    }
+
+    let onAreaChange = ()=> {
+        let text = newPost.current.value
+        //console.log(text)
+        props.updateTextarea(text);
     }
 
 
     return <div>
-        <textarea ref={newPost} cols="30" rows="3"/>
+        <textarea ref={newPost}
+                  onChange={onAreaChange} cols="30" rows="3"
+                  value={props.newPostText}/>
         <div>
-            <button onClick={addPost} className='button'>Add Post</button>
+            <button onClick={addPost}   className='button'>Add Post</button>
         </div>
         {itemData}
    </div>
