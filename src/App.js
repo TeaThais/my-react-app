@@ -11,6 +11,7 @@ import Settings from "./components/Settings/Settings";
 import {Route, BrowserRouter} from "react-router-dom";
 
 
+
 const App = (props) => {  //App is a function that returns layout
     return (
             <div className='app-wrapper'>
@@ -19,8 +20,9 @@ const App = (props) => {  //App is a function that returns layout
                 <div className='content'>
                         <Route path="/profile"
                                render={() => <Profile
-                                   state={props.state.profilePage}
-                                   addPost={props.addPost}/>}/>
+                                   profilePage={props.state.profilePage}
+                                   addPost={props.addPost}
+                                   updateTextarea={props.updateTextarea}/>}/>
                         <Route path="/dialogs"
                                render={() => <Dialogs
                                    state={props.state.dialogsPage}/>}/>
