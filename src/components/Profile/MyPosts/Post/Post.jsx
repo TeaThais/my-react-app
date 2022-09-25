@@ -21,7 +21,7 @@ const Post = (props) => {
         props.updateTextarea(text);
     }
 
-
+    console.log('props: ', props )
     return <div>
         <textarea ref={newPost}
                   onChange={onAreaChange} cols="30" rows="3"
