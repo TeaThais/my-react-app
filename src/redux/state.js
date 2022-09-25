@@ -41,15 +41,18 @@ let state = {
         },
 }
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
         let newPost = {
                 id: 4,
                 name: 'Lana',
-                message: postMessage,
+                message: state.profilePage.newPostText,
                 likes: 0,
                 link: ''
         };
         state.profilePage.postItems.push(newPost);
+        state.profilePage.newPostText = '';
         rerenderEntireTree(state);
 };
 
