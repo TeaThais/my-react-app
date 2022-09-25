@@ -6,7 +6,10 @@ import {updateTextarea} from "../../../redux/state";
 
 const MyPosts = (props) => {
     return <div>
-            <Post postItems={props.postItems} addPost={props.addPost} updateTextarea={props.updateTextarea}/>
+            <Post postItems={props.postItems}
+                  addPost={props.addPost}
+                  updateTextarea={props.updateTextarea}
+                  newPostText={props.newPostText}/>
         </div>
 }
 
