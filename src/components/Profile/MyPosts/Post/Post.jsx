@@ -10,9 +10,7 @@ const Post = (props) => {
     let newPost = React.createRef();
 
     let addPost = ()=> {
-        let text = newPost.current.value
-        props.addPost(text);
-        props.updateTextarea('');
+        props.addPost();
     }
 
     let onAreaChange = ()=> {
@@ -21,7 +19,7 @@ const Post = (props) => {
         props.updateTextarea(text);
     }
 
-    console.log('props: ', props )
+    //console.log('props: ', props )
     return <div>
         <textarea ref={newPost}
                   onChange={onAreaChange} cols="30" rows="3"
