@@ -28,7 +28,7 @@ let state = {
                         {id:2, message: 'What are you doing?'},
                         {id:3, message: 'Ciao, come stai?'}
                 ],
-
+                messageText: 'I am here',
         },
         navbar: {
                 navbarPic: [
@@ -63,6 +63,28 @@ export const updateTextarea = (newText) => {
        state.profilePage.newPostText = newText;
        rerenderEntireTree(state);
         };
+
+export const addMessage = ()=> {
+        let newDialog = {
+                id: 4,
+                name: 'Lana',
+                link: ''
+        };
+
+        let newMessage = {
+                id: 4,
+                message: state.dialogsPage.messageText,
+        };
+        state.dialogsPage.dialogs.push(newDialog);
+        state.dialogsPage.messagesData.push(newMessage)
+        state.dialogsPage.messageText = '';
+        rerenderEntireTree(state);
+};
+
+export const reloadTextarea = (newMessage) => {
+        state.dialogsPage.messageText = newMessage;
+        rerenderEntireTree(state);
+}
 
 export const subscribe = (observer) => {
         rerenderEntireTree = observer;
