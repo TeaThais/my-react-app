@@ -25,7 +25,10 @@ const App = (props) => {  //App is a function that returns layout
                                    updateTextarea={props.updateTextarea}/>}/>
                         <Route path="/dialogs"
                                render={() => <Dialogs
-                                   state={props.state.dialogsPage}/>}/>
+                                   state={props.state.dialogsPage}
+                                   addMessage={props.addMessage}
+                                   reloadTextarea={props.reloadTextarea}
+                                   messageText={props.state.dialogsPage.messageText}/>}/>
                         <Route path="/music"
                                render={() => <Music />}/>
                         <Route path="/news"
