@@ -22,7 +22,8 @@ const Post = (props) => {
     //console.log('props: ', props )
     return <div>
         <textarea ref={newPost}
-                  onChange={onAreaChange} cols="30" rows="3"
+                  onChange={onAreaChange}
+                  cols="30" rows="3"
                   value={props.newPostText}/>
         <div>
             <button onClick={addPost}   className='button'>Add Post</button>
