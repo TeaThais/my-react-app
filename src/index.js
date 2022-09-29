@@ -1,31 +1,30 @@
 import React from 'react';
 import './index.css';
-import state, {addMessage, reloadTextarea, subscribe} from "./redux/state";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import {addPost, updateTextarea} from "./redux/state";
+import store from "./redux/store";
 
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App state={state}
-                     addPost={addPost}
-                     updateTextarea={updateTextarea}
-                     addMessage={addMessage}
-                     reloadTextarea={reloadTextarea}/>
+                <App state={store.getState()}
+                     addPost={store.addPost.bind(store)}
+                     updateTextarea={store.updateTextarea.bind(store)}
+                     addMessage={store.addMessage.bind(store)}
+                     reloadTextarea={store.reloadTextarea.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>,document.getElementById('root')
     );
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 // If you want to start measuring performance in your app, pass a function
