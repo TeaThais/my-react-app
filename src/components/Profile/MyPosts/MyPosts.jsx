@@ -1,8 +1,7 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
-import postItem from "./Post/PostItem/PostItem";
-import {updateTextarea} from "../../../redux/store";
+
 
 const MyPosts = (props) => {
     return <div>
