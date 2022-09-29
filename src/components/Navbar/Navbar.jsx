@@ -23,7 +23,7 @@ const Navbar = (props) => {
         </div>
     </nav>
 
-    <FriendBar navbarPic={props.state.navbarPic}/>
+    <FriendBar navbarPic={props.navbar.navbarPic}/>
     </div>
 }
 
