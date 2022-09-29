@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import Header from "./components/Header/Header";
@@ -16,7 +15,7 @@ const App = (props) => {  //App is a function that returns layout
     return (
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar state={props.state.navbar}/>
+                <Navbar navbar={props.state.navbar}/>
                 <div className='content'>
                         <Route path="/profile"
                                render={() => <Profile
