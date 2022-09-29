@@ -55,12 +55,12 @@ let store = {
                 };
                 this._state.profilePage.postItems.push(newPost);
                 this._state.profilePage.newPostText = '';
-                this._callSubscriber(this.state);
+                this._callSubscriber(this._state);
         },
         updateTextarea(newText) {
                 // console.log('newText: ', newText)
                 this._state.profilePage.newPostText = newText;
-                this._callSubscriber(this.state);
+                this._callSubscriber(this._state);
         },
         addMessage() {
                 let newDialog = {
@@ -76,11 +76,11 @@ let store = {
                 this._state.dialogsPage.dialogs.push(newDialog);
                 this._state.dialogsPage.messagesData.push(newMessage)
                 this._state.dialogsPage.messageText = '';
-                this._callSubscriber(this.state);
+                this._callSubscriber(this._state);
         },
         reloadTextarea(newMessage) {
                 this._state.dialogsPage.messageText = newMessage;
-                this._callSubscriber(this.state);
+                this._callSubscriber(this._state);
         },
         subscribe(observer) {
                 this._callSubscriber = observer;
