@@ -10,13 +10,13 @@ const Post = (props) => {
     let newPost = React.createRef();
 
     let addPost = ()=> {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
 
     let onAreaChange = ()=> {
         let text = newPost.current.value
         //console.log(text)
-        props.updateTextarea(text);
+        props.dispatch({type: 'UPDATE-TEXTAREA', newText: text});
     }
 
     //console.log('props: ', props )
