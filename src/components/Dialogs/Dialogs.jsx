@@ -8,12 +8,12 @@ const Dialogs = (props) => {
     let newMessage = React.createRef();
 
     let addMessage = ()=> {
-        props.addMessage();
+        props.dispatch({type: 'ADD-MESSAGE'});
     }
 
     let onAreaChange = ()=> {
         let message = newMessage.current.value
-        props.reloadTextarea(message);
+        props.dispatch({type: 'RELOAD-TEXTAREA', newMessage: message});
     }
 
     let dialogElements = props.state.dialogs
