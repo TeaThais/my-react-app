@@ -20,14 +20,12 @@ const App = (props) => {  //App is a function that returns layout
                         <Route path="/profile"
                                render={() => <Profile
                                    profilePage={props.state.profilePage}
-                                   addPost={props.addPost}
-                                   updateTextarea={props.updateTextarea}/>}/>
+                                   dispatch={props.dispatch}/>}/>
                         <Route path="/dialogs"
                                render={() => <Dialogs
                                    state={props.state.dialogsPage}
-                                   addMessage={props.addMessage}
-                                   reloadTextarea={props.reloadTextarea}
-                                   messageText={props.state.dialogsPage.messageText}/>}/>
+                                   messageText={props.state.dialogsPage.messageText}
+                                   dispatch={props.dispatch}/>}/>
                         <Route path="/music"
                                render={() => <Music />}/>
                         <Route path="/news"
