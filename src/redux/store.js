@@ -39,51 +39,58 @@ let store = {
                         ]
                 },
         },
-        getState() {
-                return this._state
-        },
         _callSubscriber() {
                 console.log('State changed')
         },
-        addPost() {
-                let newPost = {
-                        id: 4,
-                        name: 'Lana',
-                        message: this._state.profilePage.newPostText,
-                        likes: 0,
-                        link: ''
-                };
-                this._state.profilePage.postItems.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state);
+        getState() {
+                return this._state
         },
-        updateTextarea(newText) {
-                // console.log('newText: ', newText)
-                this._state.profilePage.newPostText = newText;
-                this._callSubscriber(this._state);
-        },
-        addMessage() {
-                let newDialog = {
-                        id: 4,
-                        name: 'Lana',
-                        link: ''
-                }
-
-                let newMessage = {
-                        id: 4,
-                        message: this._state.dialogsPage.messageText,
-                };
-                this._state.dialogsPage.dialogs.push(newDialog);
-                this._state.dialogsPage.messagesData.push(newMessage)
-                this._state.dialogsPage.messageText = '';
-                this._callSubscriber(this._state);
-        },
-        reloadTextarea(newMessage) {
-                this._state.dialogsPage.messageText = newMessage;
-                this._callSubscriber(this._state);
-        },
+        //addPost(),
+        //updateTextarea(newText) ,
+        //addMessage() ,
+        //reloadTextarea(newMessage)
         subscribe(observer) {
                 this._callSubscriber = observer;
+        },
+
+        dispatch(action) {
+                if (action.type === 'ADD-POST') {
+                        let newPost = {
+                                id: 4,
+                                name: 'Lana',
+                                message: this._state.profilePage.newPostText,
+                                likes: 0,
+                                link: ''
+                        };
+                        this._state.profilePage.postItems.push(newPost);
+                        this._state.profilePage.newPostText = '';
+                        this._callSubscriber(this._state);
+
+                } else if (action.type === 'UPDATE-TEXTAREA') {
+                        this._state.profilePage.newPostText = action.newText;
+                        this._callSubscriber(this._state);
+
+                } else if (action.type === 'ADD-MESSAGE') {
+                        let newDialog = {
+                                id: 4,
+                                name: 'Lana',
+                                link: ''
+                        }
+
+                        let newMessage = {
+                                id: 4,
+                                message: this._state.dialogsPage.messageText,
+                        };
+                        this._state.dialogsPage.dialogs.push(newDialog);
+                        this._state.dialogsPage.messagesData.push(newMessage)
+                        this._state.dialogsPage.messageText = '';
+                        this._callSubscriber(this._state);
+
+                } else if (action.type === 'RELOAD-TEXTAREA') {
+                        this._state.dialogsPage.messageText = action.newMessage;
+                        this._callSubscriber(this._state);
+                }
+
         }
 }
 
