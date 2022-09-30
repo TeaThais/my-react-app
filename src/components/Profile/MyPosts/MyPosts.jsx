@@ -6,9 +6,8 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
     return <div>
             <Post postItems={props.postItems}
-                  addPost={props.addPost}
-                  updateTextarea={props.updateTextarea}
-                  newPostText={props.newPostText}/>
+                  newPostText={props.newPostText}
+                  dispatch={props.dispatch}/>
         </div>
 }
 
