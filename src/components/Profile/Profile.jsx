@@ -14,8 +14,7 @@ const Profile = (props) => {
         <h3>Posts</h3>
         <MyPosts postItems={props.profilePage.postItems}
                  newPostText={props.profilePage.newPostText}
-                 addPost={props.addPost}
-                 updateTextarea={props.updateTextarea}/>
+                 dispatch={props.dispatch}/>
     </div>
 }
 
