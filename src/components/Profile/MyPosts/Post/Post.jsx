@@ -2,6 +2,14 @@ import React from 'react';
 import PostItem from "./PostItem/PostItem";
 
 
+const addPostActionCreator = () => {
+    return {type: 'ADD-POST'}
+}
+
+const updateTextareaActionCreator = (text) => {
+    return {type: 'UPDATE-TEXTAREA', newText: text}
+}
+
 const Post = (props) => {
 
     let itemData = props.postItems
@@ -10,13 +18,12 @@ const Post = (props) => {
     let newPost = React.createRef();
 
     let addPost = ()=> {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     }
 
     let onAreaChange = ()=> {
         let text = newPost.current.value
-        //console.log(text)
-        props.dispatch({type: 'UPDATE-TEXTAREA', newText: text});
+        props.dispatch(updateTextareaActionCreator(text));
     }
 
     //console.log('props: ', props )
