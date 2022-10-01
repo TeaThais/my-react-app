@@ -3,17 +3,25 @@ import classes from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
+const addMessageActionCreator = () => {
+    return {type: 'ADD-MESSAGE'}
+}
+
+const reloadTextareaActionCreator = (message) => {
+    return {type: 'RELOAD-TEXTAREA', newMessage: message}
+}
+
 const Dialogs = (props) => {
 
     let newMessage = React.createRef();
 
     let addMessage = ()=> {
-        props.dispatch({type: 'ADD-MESSAGE'});
+        props.dispatch(addMessageActionCreator());
     }
 
     let onAreaChange = ()=> {
         let message = newMessage.current.value
-        props.dispatch({type: 'RELOAD-TEXTAREA', newMessage: message});
+        props.dispatch(reloadTextareaActionCreator(message));
     }
 
     let dialogElements = props.state.dialogs
