@@ -1,4 +1,5 @@
 let store = {
+
         _state: {
                 profilePage: {
                         backgroundPic: "https://images.all-free-download.com/images/graphiclarge/beach_cloud_dawn_horizon_horizontal_landscape_ocean_601821.jpg",
@@ -42,16 +43,19 @@ let store = {
         _callSubscriber() {
                 console.log('State changed')
         },
+
         getState() {
                 return this._state
         },
+        subscribe(observer) {
+                this._callSubscriber = observer;
+        },
+        
+
         //addPost(),
         //updateTextarea(newText) ,
         //addMessage() ,
         //reloadTextarea(newMessage)
-        subscribe(observer) {
-                this._callSubscriber = observer;
-        },
 
         dispatch(action) {
                 if (action.type === 'ADD-POST') {
