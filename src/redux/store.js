@@ -1,4 +1,10 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA'
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const RELOAD_TEXTAREA = 'RELOAD-TEXTAREA'
+
 let store = {
+
         _state: {
                 profilePage: {
                         backgroundPic: "https://images.all-free-download.com/images/graphiclarge/beach_cloud_dawn_horizon_horizontal_landscape_ocean_601821.jpg",
@@ -42,35 +48,39 @@ let store = {
         _callSubscriber() {
                 console.log('State changed')
         },
+
         getState() {
                 return this._state
         },
-        //addPost(),
-        //updateTextarea(newText) ,
-        //addMessage() ,
-        //reloadTextarea(newMessage)
         subscribe(observer) {
                 this._callSubscriber = observer;
         },
 
-        dispatch(action) {
-                if (action.type === 'ADD-POST') {
-                        let newPost = {
-                                id: 4,
-                                name: 'Lana',
-                                message: this._state.profilePage.newPostText,
-                                likes: 0,
-                                link: ''
-                        };
-                        this._state.profilePage.postItems.push(newPost);
-                        this._state.profilePage.newPostText = '';
-                        this._callSubscriber(this._state);
+        _addPost() {
+                let newPost = {
+                        id: 4,
+                        name: 'Lana',
+                        message: this._state.profilePage.newPostText,
+                        likes: 0,
+                        link: ''
+                };
+                this._state.profilePage.postItems.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state);
+        },
+        //updateTextarea(newText) ,
+        //addMessage() ,
+        //reloadTextarea(newMessage)
 
-                } else if (action.type === 'UPDATE-TEXTAREA') {
+        dispatch(action) {
+                if (action.type === ADD_POST) {
+                        this._addPost()
+
+                } else if (action.type === UPDATE_TEXTAREA) {
                         this._state.profilePage.newPostText = action.newText;
                         this._callSubscriber(this._state);
 
-                } else if (action.type === 'ADD-MESSAGE') {
+                } else if (action.type === ADD_MESSAGE) {
                         let newDialog = {
                                 id: 4,
                                 name: 'Lana',
@@ -86,13 +96,33 @@ let store = {
                         this._state.dialogsPage.messageText = '';
                         this._callSubscriber(this._state);
 
-                } else if (action.type === 'RELOAD-TEXTAREA') {
+                } else if (action.type === RELOAD_TEXTAREA) {
                         this._state.dialogsPage.messageText = action.newMessage;
                         this._callSubscriber(this._state);
                 }
 
         }
 }
+
+export const addPostActionCreator = () => ({
+                type: ADD_POST
+        })
+
+export const updateTextareaActionCreator = (text) => ({
+                type: UPDATE_TEXTAREA,
+                newText: text
+        })
+
+export const addMessageActionCreator = () => ({
+                type: ADD_MESSAGE
+        })
+
+export const reloadTextareaActionCreator = (message) => ({
+                type: RELOAD_TEXTAREA,
+                newMessage: message
+        })
+
+
 
 export default store;
 window.store = store;
