@@ -4,6 +4,14 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {addMessageActionCreator, reloadTextareaActionCreator} from "../../redux/store";
 
+const addMessageActionCreator = () => {
+    return {type: 'ADD-MESSAGE'}
+}
+
+const reloadTextareaActionCreator = (message) => {
+    return {type: 'RELOAD-TEXTAREA', newMessage: message}
+}
+
 const Dialogs = (props) => {
 
     let newMessage = React.createRef();
