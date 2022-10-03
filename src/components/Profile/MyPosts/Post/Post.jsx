@@ -1,5 +1,6 @@
 import React from 'react';
 import PostItem from "./PostItem/PostItem";
+import {addPostActionCreator, updateTextareaActionCreator} from "../../../../redux/store";
 
 
 const Post = (props) => {
@@ -10,13 +11,12 @@ const Post = (props) => {
     let newPost = React.createRef();
 
     let addPost = ()=> {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     }
 
     let onAreaChange = ()=> {
         let text = newPost.current.value
-        //console.log(text)
-        props.dispatch({type: 'UPDATE-TEXTAREA', newText: text});
+        props.dispatch(updateTextareaActionCreator(text));
     }
 
     //console.log('props: ', props )
