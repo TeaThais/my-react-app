@@ -3,14 +3,6 @@ import PostItem from "./PostItem/PostItem";
 import {addPostActionCreator, updateTextareaActionCreator} from "../../../../redux/store";
 
 
-const addPostActionCreator = () => {
-    return {type: 'ADD-POST'}
-}
-
-const updateTextareaActionCreator = (text) => {
-    return {type: 'UPDATE-TEXTAREA', newText: text}
-}
-
 const Post = (props) => {
 
     let itemData = props.postItems
@@ -30,6 +22,7 @@ const Post = (props) => {
     //console.log('props: ', props )
     return <div>
         <textarea ref={newPost}
+                  placeholder='Add your post'
                   onChange={onAreaChange}
                   cols="30" rows="3"
                   value={props.newPostText}/>
