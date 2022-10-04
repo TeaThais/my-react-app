@@ -23,7 +23,8 @@ const App = (props) => {  //App is a function that returns layout
                                    dispatch={props.dispatch}/>}/>
                         <Route path="/dialogs"
                                render={() => <Dialogs
-                                   state={props.state.dialogsPage}
+                                   store={props.store}
+                                   //state={props.state.dialogsPage}
                                    messageText={props.state.dialogsPage.messageText}
                                    dispatch={props.dispatch}/>}/>
                         <Route path="/music"
