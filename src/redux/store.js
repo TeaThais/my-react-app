@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA'
-const SEND_MESSAGE = 'SEND-MESSAGE'
-const RELOAD_TEXTAREA = 'RELOAD-TEXTAREA'
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import navbarReducer from "./navbar-reducer";
+
 
 let store = {
 
@@ -56,71 +56,24 @@ let store = {
                 this._callSubscriber = observer;
         },
 
-        _addPost() {
-                let newPost = {
-                        id: 4,
-                        name: 'Lana',
-                        message: this._state.profilePage.newPostText,
-                        likes: 0,
-                        link: ''
-                };
-                this._state.profilePage.postItems.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state);
-        },
+
         //updateTextarea(newText) ,
         //addMessage() ,
         //reloadTextarea(newMessage)
 
         dispatch(action) {
-                if (action.type === ADD_POST) {
-                        this._addPost()
 
-                } else if (action.type === UPDATE_TEXTAREA) {
-                        this._state.profilePage.newPostText = action.newText;
-                        this._callSubscriber(this._state);
+                this._state.profilePage = profileReducer(this._state.profilePage, action)
+                this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+                this._state.navbar = navbarReducer(this._state.navbar, action)
 
-                } else if (action.type === SEND_MESSAGE) {
-                        let newDialog = {
-                                id: 4,
-                                name: 'Lana',
-                                link: ''
-                        }
-
-                        let newMessage = {
-                                id: 4,
-                                message: this._state.dialogsPage.messageText,
-                        };
-                        this._state.dialogsPage.dialogs.push(newDialog);
-                        this._state.dialogsPage.messagesData.push(newMessage)
-                        this._state.dialogsPage.messageText = '';
-                        this._callSubscriber(this._state);
-
-                } else if (action.type === RELOAD_TEXTAREA) {
-                        this._state.dialogsPage.messageText = action.newMessage;
-                        this._callSubscriber(this._state);
-                }
+                this._callSubscriber(this._state);
 
         }
 }
 
-export const addPostActionCreator = () => ({
-                type: ADD_POST
-        })
 
-export const updateTextareaActionCreator = (text) => ({
-                type: UPDATE_TEXTAREA,
-                newText: text
-        })
 
-export const sendMessageCreator = () => ({
-                type: SEND_MESSAGE
-        })
-
-export const reloadTextareaCreator = (messageBody) => ({
-                type: RELOAD_TEXTAREA,
-                newMessage: messageBody
-        })
 
 
 
