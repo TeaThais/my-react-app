@@ -1,6 +1,7 @@
 import React from 'react';
 import PostItem from "./PostItem/PostItem";
-import {addPostActionCreator, updateTextareaActionCreator} from "../../../../redux/store";
+import {addPostActionCreator, updateTextareaActionCreator} from "../../../../redux/profile-reducer";
+
 
 
 const Post = (props) => {
