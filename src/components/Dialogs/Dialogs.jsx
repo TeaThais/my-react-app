@@ -2,26 +2,22 @@ import React from "react";
 import classes from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {reloadTextareaCreator, sendMessageCreator} from "../../redux/dialogs-reducer";
-
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage
-
     let onSendMessageClick = ()=> {
-        props.store.dispatch(sendMessageCreator());
+        props.addMessage();
     }
 
     let onAreaChange = (e)=> {
         let messageBody = e.target.value;
-        props.store.dispatch(reloadTextareaCreator(messageBody));
+        props.reloadTextarea(messageBody);
     }
 
-    let dialogElements = state.dialogs
+    let dialogElements = props.dialogs
         .map(d  => <DialogItem id={d.id} name={d.name} pic={<img className='img' src={d.link} alt=""/>}/>)
 
-    let messageElements = state.messagesData
+    let messageElements = props.messagesData
         .map(m => <Message id={m.id} message={m.message}/>)
 
     return (<div className={classes.dialog}>
