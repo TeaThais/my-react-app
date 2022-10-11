@@ -3,7 +3,9 @@ import dialogsReducer from "./dialogs-reducer";
 import navbarReducer from "./navbar-reducer";
 
 
+
 let store = {
+
 
         _state: {
                 profilePage: {
@@ -57,7 +59,8 @@ let store = {
         },
 
 
-        //updateTextarea(newText) ,
+
+       //updateTextarea(newText) ,
         //addMessage() ,
         //reloadTextarea(newMessage)
 
@@ -69,12 +72,26 @@ let store = {
 
                 this._callSubscriber(this._state);
 
-        }
+        },
+
+        addPost() {
+                let newPost = {
+                        id: 4,
+                        name: 'Lana',
+                        message: this._state.newPostText,
+                        likes: 0,
+                        link: ''
+                };
+                this._state.postItems.push(newPost);
+                this._state.newPostText = '';
+                this._callSubscriber(this._state);
+        },
+
+        updateTextarea (newText) {
+                this._state.newPostText = newText;
+                this._callSubscriber(this._state);
+        },
 }
-
-
-
-
 
 
 export default store;
