@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import {Route, BrowserRouter} from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 
@@ -19,14 +20,11 @@ const App = (props) => {  //App is a function that returns layout
                 <div className='content'>
                         <Route path="/profile"
                                render={() => <Profile
-                                   profilePage={props.state.profilePage}
-                                   dispatch={props.dispatch}/>}/>
-                        <Route path="/dialogs"
-                               render={() => <Dialogs
                                    store={props.store}
-                                   //state={props.state.dialogsPage}
-                                   messageText={props.state.dialogsPage.messageText}
-                                   dispatch={props.dispatch}/>}/>
+                                   profilePage={props.state.profilePage}/>}/>
+                        <Route path="/dialogs"
+                               render={() => <DialogsContainer
+                                   store={props.store}/>}/>
                         <Route path="/music"
                                render={() => <Music />}/>
                         <Route path="/news"
