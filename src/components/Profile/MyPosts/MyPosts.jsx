@@ -1,13 +1,10 @@
 import React from 'react';
-import classes from './MyPosts.module.css';
-import Post from "./Post/Post";
+import PostContainer from "./Post/PostContainer";
 
 
 const MyPosts = (props) => {
     return <div>
-            <Post postItems={props.postItems}
-                  newPostText={props.newPostText}
-                  dispatch={props.dispatch}/>
+            <PostContainer store={props.store}/>
         </div>
 }
 
