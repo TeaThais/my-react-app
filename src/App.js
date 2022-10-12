@@ -20,11 +20,9 @@ const App = (props) => {  //App is a function that returns layout
                 <div className='content'>
                         <Route path="/profile"
                                render={() => <Profile
-                                   store={props.store}
                                    profilePage={props.state.profilePage}/>}/>
                         <Route path="/dialogs"
-                               render={() => <DialogsContainer
-                                   store={props.store}/>}/>
+                               render={() => <DialogsContainer/>}/>
                         <Route path="/music"
                                render={() => <Music />}/>
                         <Route path="/news"
