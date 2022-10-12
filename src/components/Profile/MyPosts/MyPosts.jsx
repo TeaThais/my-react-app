@@ -4,7 +4,7 @@ import PostContainer from "./Post/PostContainer";
 
 const MyPosts = (props) => {
     return <div>
-            <PostContainer store={props.store}/>
+            <PostContainer />
         </div>
 }
 
