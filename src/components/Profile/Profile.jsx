@@ -12,7 +12,7 @@ const Profile = (props) => {
                      backgroundPic={props.profilePage.backgroundPic}
                      avatarPic={props.profilePage.avatarPic}/>
         <h3>Posts</h3>
-        <MyPosts store={props.store}/>
+        <MyPosts />
     </div>
 }
 
