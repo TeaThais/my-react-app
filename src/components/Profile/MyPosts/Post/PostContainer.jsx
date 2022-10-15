@@ -1,10 +1,10 @@
 import React from 'react';
 import {addPostActionCreator, updateTextareaActionCreator} from "../../../../redux/profile-reducer";
 import Post from "./Post";
-import StoreContext from "../../../../StoreContext";
+import {connect} from "react-redux";
 
 
-const PostContainer = (props) => {
+/* const PostContainer = (props) => {
 
    // let state = props.store.getState();
     //console.log('props: ', props )
@@ -29,9 +29,27 @@ const PostContainer = (props) => {
         }
         </StoreContext.Consumer>
     )
+};
+*/
+
+const mapStateToProps = (state)=> {
+    return {
+        postItems: state.profilePage.postItems,
+        newPostText: state.profilePage.newPostText
+    }
+};
+
+const mapDispatchToProps = (dispatch)=> {
+    return {
+        addPost: () => {
+            dispatch(addPostActionCreator())
+        },
+        updateTextarea: (text) => {
+            dispatch(updateTextareaActionCreator(text))
+        }
+    }
 }
-// <PostItem pic={<img className='img' src={Picture[0].link} alt=""/>} name={postItems[0].name} message={postItems[0].message} likes={postItems[0].likes}/>
-// <PostItem pic={<img className='img' src={Picture[1].link} alt=""/>} name={postItems[1].name} message={postItems[1].message} likes={postItems[1].likes}/>
-// <PostItem pic={<img className='img' src={Picture[2].link} alt=""/>} name={postItems[2].name} message={postItems[2].message} likes={postItems[2].likes}/>
+
+const PostContainer = connect(mapStateToProps, mapDispatchToProps) (Post);
 
 export default PostContainer;
