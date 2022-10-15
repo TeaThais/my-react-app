@@ -30,15 +30,28 @@ const dialogsReducer = (state=initialState, action) => {
                 id: 4,
                 message: state.messageText,
             };
-            state.dialogs.push(newDialog);
-            state.messagesData.push(newMessage)
-            state.messageText = '';
-            return state;
+
+            return  {
+                ...state,
+                dialogs: [...state.dialogs, newDialog],
+                messagesData: [...state.messagesData, newMessage],
+                messageText: ''
+               }
+
+            // stateCopy.dialogsPage = {...state.dialogsPage}
+            //stateCopy.dialogsPage.messagesData = {...state.dialogsPage.messagesData}
+            //stateCopy.dialogsPage.dialogs = {...state.dialogsPage.dialogs}
+
+
+            //stateCopy.dialogs.push(newDialog);
+            //stateCopy.messagesData.push(newMessage)
         }
 
         case RELOAD_TEXTAREA: {
-            state.messageText = action.newMessage;
-            return state;
+            return {
+                ...state,
+                messageText: action.newMessage
+            };
         }
         default:
             return state;
