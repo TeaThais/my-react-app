@@ -1,11 +1,10 @@
 import React from "react";
 import {reloadTextareaCreator, sendMessageCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import Store from "../../redux/store";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
 
-const DialogsContainer = (props) => {
+/*const DialogsContainer = (props) => {
 
     // let state = props.store.getState().dialogsPage;
 
@@ -30,13 +29,31 @@ const DialogsContainer = (props) => {
         }
         </StoreContext.Consumer>
     )
+};*/
+
+const mapStateToProps = (state) => {
+    return {
+        dialogs: state.dialogsPage.dialogs,
+        messagesData: state.dialogsPage.messagesData,
+        messageText: state.dialogsPage.messageText
+    }
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {
+            dispatch(sendMessageCreator());
+        },
+        reloadTextarea: (messageBody) => {
+            dispatch(reloadTextareaCreator(messageBody));
+        }
+    }
+}
+
+const DialogsContainer = connect (mapStateToProps, mapDispatchToProps) (Dialogs);
 
 
 export default DialogsContainer;
 
 
 
-// <DialogItem id={Dialogs[0].id} name={Dialogs[0].name} message={Dialogs[0].message}/>,
-//     <DialogItem id={Dialogs[1].id} name={Dialogs[1].name} message={Dialogs[1].message} />,
-//     <DialogItem id={Dialogs[2].id} name={Dialogs[2].name} message={Dialogs[2].message} />
