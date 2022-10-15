@@ -15,10 +15,10 @@ const Dialogs = (props) => {
     }
 
     let dialogElements = props.dialogs
-        .map(d  => <DialogItem id={d.id} name={d.name} pic={<img className='img' src={d.link} alt=""/>}/>)
+        .map(d  => <DialogItem key={d.id} id={d.id} name={d.name} pic={<img className='img' src={d.link} alt=""/>}/>)
 
     let messageElements = props.messagesData
-        .map(m => <Message id={m.id} message={m.message}/>)
+        .map(m => <Message key={m.id} id={m.id} message={m.message}/>)
 
     return (<div className={classes.dialog}>
         <div>
