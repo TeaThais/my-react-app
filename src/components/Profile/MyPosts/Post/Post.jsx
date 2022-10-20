@@ -7,7 +7,7 @@ import {addPostActionCreator, updateTextareaActionCreator} from "../../../../red
 const Post = (props) => {
 
     let itemData = props.postItems
-        .map(it => <PostItem pic={<img className='img' src={it.link} alt=""/>}  name={it.name} message={it.message} likes={it.likes} />)
+        .map(it => <PostItem pic={<img className='img' src={it.link} alt=""/>} key={it.id}  name={it.name} message={it.message} likes={it.likes} />)
 
     let newPost = React.createRef();
 
