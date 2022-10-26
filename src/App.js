@@ -8,6 +8,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import {Route, BrowserRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Users from "./components/Users/Users";
 
 
 
@@ -28,6 +29,8 @@ const App = (props) => {  //App is a function that returns layout
                                render={() => <News />}/>
                         <Route path="/settings"
                                render={() => <Settings />}/>
+                        <Route path="/users"
+                               render={()=> <Users/>}/>
                 </div>
             </div>
     );
