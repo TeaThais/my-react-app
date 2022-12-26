@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA'
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 let initialState = {
     backgroundPic: "https://images.all-free-download.com/images/graphiclarge/beach_cloud_dawn_horizon_horizontal_landscape_ocean_601821.jpg",
@@ -11,6 +12,7 @@ let initialState = {
         {id:3, name: 'Sasha', message: 'Ciao', likes: 50, link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQAqzwODirod1erpbzA8K7Vp7ii9s9HApvUg&usqp=CAU"}
     ],
     newPostText: '',
+    profile: null
 };
 
 const profileReducer = (state=initialState, action) => {
@@ -41,6 +43,14 @@ const profileReducer = (state=initialState, action) => {
                 newPostText: action.newText
             }
         }
+
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.profile
+            }
+        }
+
         default:
             return state;
     }
@@ -53,6 +63,11 @@ export const addPostActionCreator = () => ({
 export const updateTextareaActionCreator = (text) => ({
     type: UPDATE_TEXTAREA,
     newText: text
+})
+
+export const setUserProfile = (profile) => ({
+    type: SET_USER_PROFILE,
+    profile: profile
 })
 
 export default profileReducer;
