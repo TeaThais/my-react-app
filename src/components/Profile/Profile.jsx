@@ -8,12 +8,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props) => {
 
     return <div>
-        <ProfileInfo className={classes.picture}
-                     backgroundPic={props.profilePage.backgroundPic}
-                     avatarPic={props.profilePage.avatarPic}/>
-        <h3>Posts</h3>
-        <MyPosts />
-    </div>
+            <ProfileInfo className={classes.picture}
+                         backgroundPic={props.profilePage.backgroundPic}
+                         avatarPic={props.profilePage.avatarPic}
+                         profile={props.profile}/>
+            <h3>Posts</h3>
+            <MyPosts/>
+        </div>
+
 }
 
 export default Profile;
