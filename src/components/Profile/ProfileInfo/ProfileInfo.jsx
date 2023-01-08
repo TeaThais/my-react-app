@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ProfileInfo.module.css";
 
 
+
 const ProfileInfo = (props) => {
     if (!props.profile) {
         return <div>
@@ -16,7 +17,34 @@ const ProfileInfo = (props) => {
     }
 
     return <div>
-        <img src={props.profile.photos.large} alt=""/>
+        <div>
+            {props.profile.aboutMe}
+        </div>
+        <img src={props.profile.photos.small} alt=""/>
+        <div>
+            {props.profile.fullName}
+        </div>
+        <hr/>
+
+        <div>
+            <div>My Contacts</div>
+            <div>{props.profile.contacts.vk}</div>
+            <div>{props.profile.contacts.twitter}</div>
+            <div>{props.profile.contacts.instagram}</div>
+        </div>
+        <hr/>
+
+
+        {props.profile.lookingForAJob === true &&
+            <div>
+                <div>
+                    How are you looking for a job?
+                </div>
+                <div>
+                    {props.profile.lookingForAJobDescription}
+                </div>
+            </div>
+        }
     </div>
 };
 
