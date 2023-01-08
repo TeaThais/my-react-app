@@ -19,7 +19,7 @@ const App = (props) => {  //App is a function that returns layout
                 <Header/>
                 <Navbar navbar={props.state.navbar}/>
                 <div className='content'>
-                        <Route path='/profile'
+                        <Route path='/profile/:userId?'
                                render={() => <ProfileContainer
                                    profilePage={props.state.profilePage}/>}/>
                         <Route path="/dialogs"
