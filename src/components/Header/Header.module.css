@@ -16,3 +16,13 @@
         transform: rotate(360deg);
     }
 }
+
+.loginBlock {
+    float: right;
+    margin: 20px;
+}
+
+.loginBlock a{
+    color: hotpink;
+    font-size: 20px;
+}
