@@ -20,6 +20,7 @@
 .loginBlock {
     float: right;
     margin: 20px;
+    color: hotpink;
 }
 
 .loginBlock a{
