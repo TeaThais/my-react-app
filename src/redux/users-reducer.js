@@ -49,7 +49,7 @@ let initialState = {
 const usersReducer = (state=initialState, action) => {
     switch (action.type) {
         case FOLLOW: {
-            console.log('FOLLOW', action)
+            //console.log('FOLLOW', action)
             return {
                 ...state,
                 users: state.users.map(u => {
